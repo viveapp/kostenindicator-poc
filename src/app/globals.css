@@ -1,33 +1,43 @@
 @import "tailwindcss";
 
 /*
- * Palet van de kostenindicator-POC. Petrol/amber op een mistgroene achtergrond;
- * één bewuste lichte look, dus geen dark-modevarianten.
+ * Vive-merktokens, overgenomen uit het Brand Guide Assets-bestand in Figma:
+ * figma.com/design/EBNuAmD5lYVIL4AsOSGVhA/VIVE---Brand-Guide-Assets
+ *
+ * De vijf merkkleuren staan daar als variabelen (Colors/primary/*); de namen
+ * hieronder zijn identiek gehouden zodat ze één-op-één te herleiden zijn. Het
+ * grijsverloop is de 0–100-schaal uit het bestand, waarbij greys/N staat voor
+ * N% zwart (greys/80 = #333333 is de waarde die het bestand zelf vastlegt).
+ *
+ * De merkkleuren zijn onderling én met zwart en wit vrij combineerbaar; dat is
+ * wat het frame "Kleuren contrast" en "Kleuren combinaties" laten zien.
  */
 @theme inline {
-  --color-ink: #122a30;
-  --color-petrol: #155e63;
-  --color-petrol-dark: #0c3e42;
-  /*
-   * Alleen als staafsegment. Beide moeten leesbaar zijn op petrol-dark, dus de
-   * werkgeverslasten krijgen petrol-mid en niet petrol-dark zelf — dat viel weg
-   * tegen de achtergrond van de kaart.
-   */
-  --color-petrol-soft: #8fb6b2;
-  --color-petrol-mid: #4a9297;
-  --color-mist: #e9efee;
-  --color-paper: #ffffff;
-  --color-amber: #e8a33d;
-  --color-amber-soft: #fbf0dc;
-  --color-line: #d5e0de;
-  --color-sub: #5a7376;
+  --color-orange: #f05014;
+  --color-pink: #ff8cb4;
+  --color-purple: #a096ff;
+  --color-blue: #0096ff;
+  --color-green: #00be64;
 
-  --font-display: var(--font-instrument-serif), Georgia, serif;
-  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --color-grey-5: #f2f2f2;
+  --color-grey-10: #e5e5e5;
+  --color-grey-20: #cccccc;
+  --color-grey-40: #999999;
+  --color-grey-60: #666666;
+  --color-grey-80: #333333;
+  --color-ink: #000000;
+
+  /*
+   * Het merk gebruikt Monument Grotesk. Die licentie hebben we hier niet, dus
+   * staat Space Grotesk ervoor: dezelfde neo-grotesk inslag, en door zijn
+   * monospace-afkomst lopen de cijfers van zichzelf al gelijk — precies wat een
+   * rekentool nodig heeft. Arial is de systeemletter die het merk zelf aanwijst.
+   */
+  --font-sans: var(--font-space-grotesk), Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: var(--color-mist);
+  background: #ffffff;
   color: var(--color-ink);
   font-family: var(--font-sans);
 }
@@ -42,4 +52,33 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   appearance: none;
   margin: 0;
+}
+
+/*
+ * Ronde uiteinden op de deelnameschuif: het merk schrijft lijnen met een rond
+ * uiteinde voor, en de knop is een gevulde cirkel.
+ */
+input[type="range"] {
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-grey-10);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--color-orange);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-orange);
+  cursor: pointer;
 }
