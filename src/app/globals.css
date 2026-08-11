@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/*
+ * Palet van de kostenindicator-POC. Petrol/amber op een mistgroene achtergrond;
+ * één bewuste lichte look, dus geen dark-modevarianten.
+ */
+@theme inline {
+  --color-ink: #122a30;
+  --color-petrol: #155e63;
+  --color-petrol-dark: #0c3e42;
+  /*
+   * Alleen als staafsegment. Beide moeten leesbaar zijn op petrol-dark, dus de
+   * werkgeverslasten krijgen petrol-mid en niet petrol-dark zelf — dat viel weg
+   * tegen de achtergrond van de kaart.
+   */
+  --color-petrol-soft: #8fb6b2;
+  --color-petrol-mid: #4a9297;
+  --color-mist: #e9efee;
+  --color-paper: #ffffff;
+  --color-amber: #e8a33d;
+  --color-amber-soft: #fbf0dc;
+  --color-line: #d5e0de;
+  --color-sub: #5a7376;
+
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Bedragen en percentages blijven uitgelijnd terwijl je aan de invoer draait. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Chrome/Safari zetten spinners op number-inputs; die verstoren de uitlijning. */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
